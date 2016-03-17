@@ -1,6 +1,6 @@
 //
 //  poj1050.cpp
-//  MacPOJ
+//  MacACM
 //
 //  Created by yukon on 16/2/29.
 //  Copyright © 2016年 yukon. All rights reserved.
@@ -45,7 +45,7 @@
 
 #include <iostream>
 
-namespace poj1050 {
+namespace POJ1050 {
     
 #define MAX_ArrayLen    100
 
@@ -64,7 +64,7 @@ int maxSub(int count)
     return maxSub;
 }
 
-int main_1050(int argc, const char * argv[])
+int main(int argc, const char * argv[])
 {
     int n = 0;
     while ( std::cin >> n ) {

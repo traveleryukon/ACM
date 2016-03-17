@@ -1,6 +1,6 @@
 //
 //  poj1001.cpp
-//  MacPOJ
+//  MacACM
 //
 //  Created by yukon on 16/2/26.
 //  Copyright © 2016年 yukon. All rights reserved.
@@ -44,7 +44,7 @@
 #include <iostream>
 #include <string>
 
-namespace poj1001 {
+namespace POJ1001 {
 
 #define MAX_BigIntBuffer    50
 #define MAX_AddIn           1000
@@ -107,7 +107,7 @@ void printfBufferBigInt(int decimal)
     std::cout << strPrintf << std::endl;
 }
 
-int main_1001(int argc, const char * argv[])
+int main(int argc, const char * argv[])
 {
     float r = 0;
     int n = 0;

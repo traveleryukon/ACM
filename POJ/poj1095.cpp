@@ -1,6 +1,6 @@
 //
 //  poj1095.cpp
-//  MacPOJ
+//  MacACM
 //
 //  Created by yukon on 16/2/21.
 //  Copyright © 2016年 yukon. All rights reserved.
@@ -8,7 +8,7 @@
 
 #include <iostream>
 
-namespace  poj1095 {
+namespace  POJ1095 {
 
 #define Max_CatalanBuffer  20
 // 计算规律常数（卡特兰数）
@@ -75,7 +75,7 @@ void buildTree( int nodes, unsigned long index )
     }
 }
 
-int main_1095(int argc, const char * argv[])
+int main(int argc, const char * argv[])
 {
     //
     initCatalan();

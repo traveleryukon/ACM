@@ -1,6 +1,6 @@
 //
 //  poj1051.cpp
-//  MacPOJ
+//  MacACM
 //
 //  Created by yukon on 16/2/19.
 //  Copyright © 2016年 yukon. All rights reserved.
@@ -10,9 +10,9 @@
 #include <string>
 #include <map>
 
-namespace poj1051 {
+namespace POJ1051 {
 
-int main_1051(int argc, const char * argv[])
+int main(int argc, const char * argv[])
 {
     std::map<char, std::string> mapMorse;
     mapMorse['A'] = ".-";

@@ -1,6 +1,6 @@
 //
 //  poj1125.cpp
-//  MacPOJ
+//  MacACM
 //
 //  Created by yukon on 16/3/9.
 //  Copyright © 2016年 yukon. All rights reserved.
@@ -43,7 +43,7 @@
 
 #include <iostream>
 
-namespace poj1125 {
+namespace POJ1125 {
 
 #define MAX_TimeWait             9999
 #define MAX_StockbrokersCount    100
@@ -62,7 +62,7 @@ void floyd(int nMatrix)
     }
 }
 
-int main_1125(int argc, const char * argv[])
+int main(int argc, const char * argv[])
 {
     int n = 0;
     std::cin >> n;

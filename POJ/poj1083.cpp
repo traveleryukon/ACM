@@ -1,6 +1,6 @@
 //
 //  poj1083.cpp
-//  MacPOJ
+//  MacACM
 //
 //  Created by yukon on 16/2/29.
 //  Copyright © 2016年 yukon. All rights reserved.
@@ -8,13 +8,13 @@
 
 #include <iostream>
 
-namespace poj1083 {
+namespace POJ1083 {
 
 #define MAX_ROOMS   (1 + 400)
 
 int roomUserd[MAX_ROOMS];
 
-int main_1083(int argc, const char * argv[]) {
+int main(int argc, const char * argv[]) {
  
     int t = 0;
     

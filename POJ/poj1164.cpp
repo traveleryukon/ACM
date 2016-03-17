@@ -1,6 +1,6 @@
 //
 //  poj1164.cpp
-//  MacPOJ
+//  MacACM
 //
 //  Created by yukon on 16/3/13.
 //  Copyright © 2016年 yukon. All rights reserved.
@@ -65,8 +65,9 @@
  */
 
 
-
 #include <iostream>
+
+namespace POJ1164 {
 
 #define MAX_WALL_NUM    50
 
@@ -76,13 +77,34 @@ struct ST_Wall {
     bool east;
     bool south;
 };
-ST_Wall walls[MAX_WALL_NUM][MAX_WALL_NUM];
-int zoom[MAX_WALL_NUM][MAX_WALL_NUM];
 
-int searchZoom()
+ST_Wall walls[MAX_WALL_NUM][MAX_WALL_NUM];
+
+int zoomUsed[MAX_WALL_NUM][MAX_WALL_NUM];
+
+int searchZoom(int iRow, int iColumn)
 {
+    if ( 0 != zoomUsed[iRow][iColumn] ) {
+        return 0;
+    }
     
-    return 0;
+    zoomUsed[iRow][iColumn] = 1;
+    int sumZooms = 1;
+    
+    if ( walls[iRow][iColumn].west ) {
+        sumZooms += searchZoom(iRow, iColumn-1);
+    }
+    if ( walls[iRow][iColumn].north ) {
+        sumZooms += searchZoom(iRow-1, iColumn);
+    }
+    if ( walls[iRow][iColumn].east ) {
+        sumZooms += searchZoom(iRow, iColumn+1);
+    }
+    if ( walls[iRow][iColumn].south ) {
+        sumZooms += searchZoom(iRow+1, iColumn);
+    }
+    
+    return sumZooms;
 }
 
 int main(int argc, const char * argv[])
@@ -93,47 +115,62 @@ int main(int argc, const char * argv[])
     
     // 记录墙
     int oneWall = 0;
+    memset(walls, false, MAX_WALL_NUM*MAX_WALL_NUM*sizeof(ST_Wall));
     for ( int iRow = 0; iRow < rows; ++iRow ) {
         for ( int iCloumn = 0; iCloumn < cloumns; ++iCloumn ) {
-
+            
             std::cin >> oneWall;
             
             if ( oneWall > 7 ) {
-                walls[iRow][iCloumn].south = true;
+                walls[iRow][iCloumn].south = false;
                 oneWall -= 8;
+            } else {
+                walls[iRow][iCloumn].south = true;
             }
             if ( oneWall > 3 ) {
-                walls[iRow][iCloumn].east = true;
+                walls[iRow][iCloumn].east = false;
                 oneWall -= 4;
+            } else {
+                walls[iRow][iCloumn].east = true;
             }
             if ( oneWall > 1 ) {
-                walls[iRow][iCloumn].north = true;
+                walls[iRow][iCloumn].north = false;
                 oneWall -= 2;
+            } else {
+                walls[iRow][iCloumn].north = true;
             }
             if ( oneWall > 0 ) {
+                walls[iRow][iCloumn].west = false;
+            } else {
                 walls[iRow][iCloumn].west = true;
             }
         }
     }
     
-    int color = 1;
-    memset(zoom, 0, MAX_WALL_NUM*MAX_WALL_NUM*sizeof(int));
+    int numZooms = 0;
+    int MaxZoom  = 0;
+    memset(zoomUsed, 0, MAX_WALL_NUM*MAX_WALL_NUM*sizeof(int));
     for ( int iRow = 0; iRow < rows; ++iRow ) {
         for ( int iCloumn = 0; iCloumn < cloumns; ++iCloumn ) {
             
-            if ( walls[iRow][iCloumn].west && iRow-1 > 0 && zoom[iRow][iCloumn] < zoom[iRow-1][iCloumn] ) {
-                zoom[iRow][iCloumn] = zoom[iRow-1][iCloumn];
-            }
-            if ( walls[iRow][iCloumn].north && iCloumn-1 > 0 ) {
-                
+            int thisZoom = searchZoom(iRow, iCloumn);
+            
+            if ( MaxZoom < thisZoom )
+            {
+                MaxZoom = thisZoom;
             }
             
+            if ( thisZoom > 0 ) {
+                ++numZooms;
+            }
         }
     }
+    
+    std::cout << numZooms << std::endl << MaxZoom << std::endl;
     
     return 0;
 }
 
 
-
+}
 

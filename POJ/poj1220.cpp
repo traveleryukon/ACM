@@ -1,6 +1,6 @@
 //
 //  poj1220.cpp
-//  MacPOJ
+//  MacACM
 //
 //  Created by yukon on 16/3/9.
 //  Copyright © 2016年 yukon. All rights reserved.
@@ -60,7 +60,7 @@
 #include <iostream>
 #include <string>
 
-namespace poj1083 {
+namespace POJ1220 {
 
 #define BufferLen_BigInt        500
 #define Max_BaseBigInt          62

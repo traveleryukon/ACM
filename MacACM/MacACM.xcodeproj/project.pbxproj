@@ -237,6 +237,7 @@
 				4FC063791C99BC7D003E1830 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

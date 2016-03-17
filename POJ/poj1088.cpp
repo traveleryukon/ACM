@@ -1,6 +1,6 @@
 //
 //  poj1088.cpp
-//  MacPOJ
+//  MacACM
 //
 //  Created by yukon on 16/2/28.
 //  Copyright © 2016年 yukon. All rights reserved.
@@ -40,7 +40,7 @@
 
 #include <iostream>
 
-namespace poj1088 {
+namespace POJ1088 {
     
 #define MAX_MATRIX_LEN  100
     
@@ -109,7 +109,7 @@ int maxLineLength(int r, int c)
     return retMax + 1;
 }
 
-int main_1088(int argc, const char * argv[]) {
+int main(int argc, const char * argv[]) {
     
     int r = 0;
     int c = 0;
